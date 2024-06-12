@@ -1,0 +1,53 @@
+{
+    "name": "flarone/laravel-eboekhouden",
+    "description": "A Laravel package for E-boekhouden.nl",
+    "keywords": [
+        "flarone",
+        "eboekhouden",
+        "laravel",
+        "php"
+    ],
+    "homepage": "https://github.com/flarone/laravel-eboekhouden",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flarone",
+            "homepage": "https://flarone.com",
+            "email": "info@flarone.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4||^8.0",
+        "ext-soap": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "Flarone\\EBoekhouden\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flarone\\EBoekhouden\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Flarone\\EBoekhouden\\EboekhoudenServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
