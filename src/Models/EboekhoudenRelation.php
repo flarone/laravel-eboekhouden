@@ -34,6 +34,7 @@ class EboekhoudenRelation implements Arrayable
     protected ?string $site = null;
     protected ?string $notes = null;
     protected ?string $vat_number = null;
+    protected ?string $coc_number = null;
     protected ?string $salutation = null;
     protected ?string $iban = null;
     protected ?string $bic = null;
@@ -76,6 +77,7 @@ class EboekhoudenRelation implements Arrayable
                 ->setIBAN($item['IBAN'] ?? null)
                 ->setBIC($item['BIC'] ?? null)
                 ->setVatNumber($item['BTWNummer'] ?? null)
+                ->setCocNumber($item['KvkNummer'] ?? null)
                 ->setDefaultLedgerId($item['Gb_ID'] ?? null)
                 ->setReceiveNewsletter(! ! ! $item['GeenEmail'])
                 ->setCustomFields($item);
@@ -556,6 +558,25 @@ class EboekhoudenRelation implements Arrayable
     public function setVatNumber(?string $vat_number): EboekhoudenRelation
     {
         $this->vat_number = $vat_number;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCocNumber(): ?string
+    {
+        return $this->coc_number;
+    }
+
+    /**
+     * @param string $coc_number
+     * @return EboekhoudenRelation
+     */
+    public function setCocNumber(?string $coc_number): EboekhoudenRelation
+    {
+        $this->coc_number = $coc_number;
 
         return $this;
     }
